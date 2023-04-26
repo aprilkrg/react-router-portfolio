@@ -1,5 +1,5 @@
 // http://fillerama.io/
-const postsArr = [
+export const postsArr = [
 	{
 		id: 1,
 		title: "Monty Python Lorem Ipsum",
@@ -25,4 +25,3 @@ const postsArr = [
         Army had half a day. It's a hug, Michael. I'm hugging you. I'm afraid I just blue myself. I'm afraid I just blue myself. But I bought a yearbook ad from you, doesn't that mean anything anymore?`,
 	},
 ]
-export default postsArr
