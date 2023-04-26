@@ -14,6 +14,7 @@ export default function Blog(props) {
     return(
         <>
             <h2>Blog</h2>
+            <BlogForm />
             {blogPosts}
         </>
     )
