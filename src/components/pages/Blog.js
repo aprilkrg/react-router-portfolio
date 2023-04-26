@@ -15,6 +15,14 @@ export default function Blog(props) {
             </h3>
         )
     })
+
+    const stateBlogs = blogs.map((blog, i) => {
+        return(
+            <h3>
+                {blog.title}
+            </h3>
+        )
+    })
     return(
         <>
             <h2>Blog</h2>
@@ -24,6 +32,7 @@ export default function Blog(props) {
                 newBlog={newBlog}
                 setNewBlog={setNewBlog}
             />
+            {blogs.length ? stateBlogs : null}
             {blogPosts}
         </>
     )
