@@ -1,11 +1,7 @@
-import { useState } from "react"
 import { Link } from "react-router-dom"
 import BlogForm from "../partials/BlogForm"
 
 export default function Blog(props) {
-    const [blogs, setBlogs] = useState([])
-	const [newBlog, setNewBlog] = useState({ id: "", title: "", description: "" })
-
     const blogPosts = props.posts.map((post,i) => {
         return(
             <h3>
@@ -16,7 +12,7 @@ export default function Blog(props) {
         )
     })
 
-    const stateBlogs = blogs.map((blog, i) => {
+    const stateBlogs = props.blogs.map((blog, i) => {
         return(
             <h3>
                 <Link to={`/blog/${blog.id}`}>
@@ -30,12 +26,12 @@ export default function Blog(props) {
             <h2>Blog</h2>
             <BlogForm 
                 posts={props.posts}
-                blogs={blogs}
-                setBlogs={setBlogs}
-                newBlog={newBlog}
-                setNewBlog={setNewBlog}
+                blogs={props.blogs}
+                setBlogs={props.setBlogs}
+                newBlog={props.newBlog}
+                setNewBlog={props.setNewBlog}
             />
-            {blogs.length ? stateBlogs : null}
+            {props.blogs.length ? stateBlogs : null}
             {blogPosts}
         </>
     )
