@@ -2,10 +2,10 @@ import { useState } from "react"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-import { Home, About, Posts, Post, Projects } from "./components/pages/Index"
+import { Home, About, Blog, Post, Projects } from "./components/pages/Index"
 import { Header } from "./components/partials/Index"
 
-function App() {
+export default function App() {
 	const postsArr = [
 		{
 			id: 1,
@@ -37,20 +37,32 @@ function App() {
 	]
 
 	const [blogs, setBlogs] = useState([])
-	const [newBlog, setNewBlog] = useState({})
+	const [newBlog, setNewBlog] = useState({title: "",description: "", id: ""})
 
 	// // === EVENT HANDLERS === //
 	// handle form submission
 	const handleSubmit = (e) => {
 		e.preventDefault()
+		// get length of posts arr and of blogs from state, set newBlog id to one greater than the sum of that number
+		
+		// const idx = postsArr.length + blogs.length + 1
+		// console.log(idx)
+		// setNewBlog({
+		// 	title: newBlog.title, 
+		// 	description: newBlog.description, 
+		// 	id: idx
+		// })
+
 		setBlogs([...blogs,newBlog])
-		setNewBlog({title:'',description:''})
+		setNewBlog({title:'',description:'', id: ""})
 	}
 	// handle text change in form
 	const handleTextChange = (e) => {
 		// console.log("handle text change")
 		// console.log(e.target.value, e.target.name)
-		setNewBlog({...newBlog,[e.target.name]: e.target.value})
+		const idx = postsArr.length + blogs.length + 1
+		console.log(idx)
+		setNewBlog({...newBlog,[e.target.name]: e.target.value, id: idx})
 	}
 
 	return (
@@ -64,9 +76,9 @@ function App() {
 					path={"/about"} 
 					element={<About />} />
 				<Route
-					path={"/posts"}
+					path={"/blog"}
 					element={
-						<Posts 
+						<Blog
 							posts={postsArr} 
 							blogs={blogs} 
 							setBlogs={setBlogs}
@@ -75,8 +87,12 @@ function App() {
 							handleTextChange={handleTextChange}
 						/>} />
 				<Route
-					path={"/posts/:postId"}
-					element={<Post />} />
+					path={"/blog/:postId"}
+					element={
+						<Post 
+							posts={postsArr}
+							blogs={blogs}
+						/>} />
 				<Route 
 					path={"/projects"} 
 					element={<Projects />} />
@@ -85,7 +101,6 @@ function App() {
 	)
 }
 
-export default App
 // Problems:
 // change style of function to export default function () {} -- cause that's whats in the react docsand it's mroe efficient to type. the arrow function doesn't bind `this` or anything
 // diff between jsx and js

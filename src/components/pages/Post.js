@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 export default function Post(props) {
     const { postId } = useParams()
     const onePost = props.posts.find(post => post.id === parseInt(postId))
+    // loop over posts and blogs to find the right item to render
     return(
         <>
             <h2>{onePost.title}</h2>

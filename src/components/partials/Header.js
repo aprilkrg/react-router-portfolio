@@ -7,7 +7,7 @@ export default function Header() {
             {" | "}
             <Link to="/about">about</Link>
             {" | "}
-            <Link to="/posts">blog</Link>
+            <Link to="/blog">blog</Link>
             {" | "}
             <Link to="/projects">projects</Link>
         </nav>
