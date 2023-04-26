@@ -19,7 +19,9 @@ export default function Blog(props) {
     const stateBlogs = blogs.map((blog, i) => {
         return(
             <h3>
-                {blog.title}
+                <Link to={`/blog/${blog.id}`}>
+                    {blog.title}
+                </Link>
             </h3>
         )
     })
