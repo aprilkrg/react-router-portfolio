@@ -23,7 +23,7 @@ export default function Blog(props) {
     })
     return(
         <>
-            <h2>Blog</h2>
+            <h2>Blogs</h2>
             <BlogForm 
                 posts={props.posts}
                 blogs={props.blogs}

@@ -1,7 +1,6 @@
 export default function BlogForm(props) {
     const handleChange = (e) => {
-        // create an id for the new blog
-        // needs to be a number not used by the posts arr or any other blogs in state
+        // create an id for the new blog; needs to be a number not used by the posts arr or any other blogs in state
         const idx = props.posts.length + props.blogs.length + 1
         props.setNewBlog({
             ...props.newBlog, 

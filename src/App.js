@@ -47,6 +47,7 @@ export default function App() {
                     element={
                         <Post 
                             posts={postsArr}
+                            blogs={blogs}
                         />
                     }
                 />
