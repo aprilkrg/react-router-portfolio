@@ -1,4 +1,10 @@
 export default function BlogForm(props) {
+    const handleChange = (e) => {
+        props.setNewBlog({
+            ...props.newBlog, 
+            [e.target.name]: e.target.value
+        })
+    }
     return(
     <>
         <h2>Add a New Blog Post</h2>
@@ -9,6 +15,7 @@ export default function BlogForm(props) {
                 id="post-title" 
                 type="text"
                 value={props.newBlog.title}
+                onChange={handleChange}
             />
             <label htmlFor="post-description">Description: </label>
             <input 
@@ -16,6 +23,7 @@ export default function BlogForm(props) {
                 id="post-description" 
                 type="text"
                 value={props.newBlog.description}
+                onChange={handleChange}
             />
             <input type="submit"/>
         </form>

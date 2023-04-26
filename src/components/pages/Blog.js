@@ -24,7 +24,9 @@ export default function Blog(props) {
             <h2>Blog</h2>
             <BlogForm 
                 blogs={blogs}
+                setBlogs={setBlogs}
                 newBlog={newBlog}
+                setNewBlog={setNewBlog}
             />
             {blogPosts}
         </>
