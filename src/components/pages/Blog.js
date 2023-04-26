@@ -4,11 +4,7 @@ import BlogForm from "../partials/BlogForm"
 
 export default function Blog(props) {
     const [blogs, setBlogs] = useState([])
-	const [newBlog, setNewBlog] = useState({
-        id: "",
-        title: "",
-        description: ""
-    })
+	const [newBlog, setNewBlog] = useState({ id: "", title: "", description: "" })
 
     const blogPosts = props.posts.map((post,i) => {
         return(
