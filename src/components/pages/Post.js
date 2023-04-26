@@ -3,6 +3,10 @@ import { useParams } from "react-router-dom"
 export default function Post(props) {
     const { blogId } = useParams()
     const onePost = props.posts.find(post => post.id === parseInt(blogId))
+
+    // if posts includes an item wit the id then set value of onePost to it
+    // else if blogs from state inclues item with id, set value to that
+    
     return (
         <>
             <h2>{onePost.title}</h2>
